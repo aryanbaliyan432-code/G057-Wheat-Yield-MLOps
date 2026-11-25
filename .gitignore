@@ -1,0 +1,18 @@
+
+# MLflow files
+mlflow.db
+mlruns/
+
+# Trained model artifacts
+models/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Testing cache
+.pytest_cache/

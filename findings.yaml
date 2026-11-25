@@ -1,0 +1,71 @@
+
+# MP161 findings
+
+group_id: "G057"
+problem_id: "MP161"
+
+data_issues:
+  leaking_column:
+    present: true
+    column: "yield_from_mandi_receipt"
+
+  unit_mixup:
+    present: true
+    column: "rainfall_mm"
+    group_value: "Tehsil North"
+    factor: 10
+
+  sentinel_value:
+    present: true
+    column: "sowing_delay_days"
+    value: 999
+    count: 33
+
+  duplicate_rows:
+    present: true
+    count: 33
+
+  stuck_sensor:
+  present: true
+  column: "irrigation_count"
+  group_value: "Tehsil North"
+  repeated_value: 4
+  repeated_observations: 5
+  start_date: "2026-02-14"
+  end_date: "2026-02-23"
+
+  target_typos:
+    present: true
+    count: 10
+
+  spelling_variants:
+    present: false
+    column: null
+    true_levels: null
+
+tracking:
+  experiment_name: "wheat-yield-prediction"
+  best_run_id: "bfe378c0f4b04738a6e77d0dcfd4a1ea"
+  registered_model_name: "wheat-yield-champion"
+  champion_version: 1
+
+monitoring:
+  psi:
+    rainfall_mm: null
+    fertilizer_kg: null
+    sowing_delay_days: null
+    irrigation_count: null
+    soil_ph: null
+    farm_acres: null
+
+  most_drifted_feature: null
+
+  mae_by_group:
+    'Tehsil North': null
+    'Tehsil South': null
+    'Tehsil West': null
+
+  worst_served_group: null
+  mae_v1_on_check: null
+  mae_v2_on_check: null
+  decision: null

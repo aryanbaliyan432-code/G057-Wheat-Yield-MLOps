@@ -1,0 +1,54 @@
+=======================================================
+WHEAT YIELD DATA QUALITY INVESTIGATION
+=======================================================
+
+1. LEAKING COLUMN
+Columns missing from holdout: {'yield_from_mandi_receipt', 'yield_qtl_per_acre'}
+Mandi receipt correlation (excluding extreme target values): 0.9989697494222471
+
+2. UNIT MIXUP
+                min        mean  median     max
+tehsil                                         
+Tehsil North   22.1   74.303046    75.0   119.7
+Tehsil South  201.0  678.944637   654.0  1197.0
+Tehsil West   203.0  690.974406   680.0  1200.0
+
+3. SENTINEL VALUE
+999 in sowing_delay_days: 33
+
+4. DUPLICATE ROWS
+Exact duplicate rows: 33
+Duplicate record IDs: 33
+
+5. STUCK SENSOR
+Tehsil North Value: (np.int64(4),) Start: 2026-02-14 End: 2026-02-23 Repeated observations: 5
+
+6. TARGET TYPOS
+Targets above 100: 10
+record_id  yield_qtl_per_acre
+   R00013               160.6
+   R00052               126.5
+   R00077               173.3
+   R00121               241.1
+   R00279               210.0
+   R00511               226.9
+   R00583               242.7
+   R00872               111.1
+   R00896               219.0
+   R00942               216.8
+
+7. SPELLING VARIANTS
+
+Column: seed_variety
+Original categories: ['DBW-187', 'HD-2967', 'PBW-343']
+Normalized categories: ['dbw-187', 'hd-2967', 'pbw-343']
+Spelling variants present: False
+
+Column: tehsil
+Original categories: ['Tehsil North', 'Tehsil South', 'Tehsil West']
+Normalized categories: ['tehsil north', 'tehsil south', 'tehsil west']
+Spelling variants present: False
+
+=======================================================
+DATA INVESTIGATION COMPLETED
+=======================================================

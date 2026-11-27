@@ -440,3 +440,12 @@ R01303,24.27
 | **Container & CI** | `Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml` | Containerization and automated testing/build pipeline |
 | **Kubernetes** | `k8s/` | Deployment (2 replicas), Service (port 80->8000), ConfigMap, and Secret manifests |
 | **Tracking & Output** | `mlflow.db`, `findings.yaml`, `predictions/` | MLflow database with registered champion model and holdout predictions |
+
+---
+
+## 16. Troubleshooting
+
+- After `git clone`, the folder is named `G057-Wheat-Yield-MLOps`. Run `cd G057-Wheat-Yield-MLOps`.
+- If `git push` says "Password authentication is not supported", sign in through the browser prompt or use a personal access token instead of your password.
+- Do not open or save `data/raw/train.csv` in Excel, because the file hash changes and the data stops matching.
+- If `pytest` can't find modules, run it from the repository root with the virtual environment activated.

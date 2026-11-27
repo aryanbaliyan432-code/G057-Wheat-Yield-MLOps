@@ -34,9 +34,9 @@ data_issues:
     true_levels: null
 tracking:
   experiment_name: wheat-yield-prediction
-  best_run_id: ae31d418922c4b30bd57ef999b64571e
+  best_run_id: 0f780dcac5d74b56b0a75a454a8ce85a
   registered_model_name: wheat-yield-champion
-  champion_version: 4
+  champion_version: 6
 monitoring:
   psi:
     rainfall_mm: 1.8835

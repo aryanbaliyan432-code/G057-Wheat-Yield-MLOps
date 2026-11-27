@@ -1,18 +1,19 @@
-
-# MLflow files
-mlflow.db
+# Artifact folders (tool reads only mlflow.db)
 mlruns/
-
-# Trained model artifacts
-models/
+mlartifacts/
 
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
 # Virtual environments
 .venv/
 venv/
+env/
 
-# Testing cache
+# Testing & tool cache
 .pytest_cache/
+.coverage
+htmlcov/

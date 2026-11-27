@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mp161-config
+  labels:
+    app: mp161-api
+    group: G057
+    problem: MP161
+data:
+  LOG_LEVEL: "INFO"
+  MODEL_PATH: "models/model.joblib"
+  ENVIRONMENT: "production"
+  PORT: "8000"

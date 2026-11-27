@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "features_analyzed": 6,
+  "psi_by_feature": {
+    "rainfall_mm": 1.8835,
+    "fertilizer_kg": 0.2998,
+    "sowing_delay_days": 0.8334,
+    "irrigation_count": 3.2701,
+    "soil_ph": 0.8329,
+    "farm_acres": 0.1266
+  },
+  "most_drifted_feature": "irrigation_count",
+  "highest_psi": 3.2701,
+  "retraining_recommended": true
+}

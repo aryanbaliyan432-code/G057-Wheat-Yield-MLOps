@@ -1,0 +1,56 @@
+group_id: G057
+problem_id: MP161
+data_issues:
+  leaking_column:
+    present: true
+    column: yield_from_mandi_receipt
+  unit_mixup:
+    present: true
+    column: rainfall_mm
+    group_value: Tehsil North
+    factor: 10
+  sentinel_value:
+    present: true
+    column: sowing_delay_days
+    value: 999
+    count: 33
+  duplicate_rows:
+    present: true
+    count: 33
+  stuck_sensor:
+    present: true
+    column: irrigation_count
+    group_value: Tehsil North
+    repeated_value: 4
+    repeated_observations: 5
+    start_date: '2026-02-14'
+    end_date: '2026-02-23'
+  target_typos:
+    present: true
+    count: 10
+  spelling_variants:
+    present: false
+    column: null
+    true_levels: null
+tracking:
+  experiment_name: wheat-yield-prediction
+  best_run_id: ae31d418922c4b30bd57ef999b64571e
+  registered_model_name: wheat-yield-champion
+  champion_version: 4
+monitoring:
+  psi:
+    rainfall_mm: 1.8835
+    fertilizer_kg: 0.2998
+    sowing_delay_days: 0.8334
+    irrigation_count: 3.2701
+    soil_ph: 0.8329
+    farm_acres: 0.1266
+  most_drifted_feature: irrigation_count
+  mae_by_group:
+    Tehsil North: 1.1743
+    Tehsil South: 1.0702
+    Tehsil West: 1.107
+  worst_served_group: Tehsil North
+  mae_v1_on_check: 1.1154
+  mae_v2_on_check: 0.9463
+  decision: promote

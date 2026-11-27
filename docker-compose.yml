@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  wheat-yield-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mp161-api:1.0
+    container_name: mp161-api-service
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=models/model.joblib
+      - LOG_LEVEL=INFO
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped

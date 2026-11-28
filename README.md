@@ -449,3 +449,4 @@ R01303,24.27
 - If `git push` says "Password authentication is not supported", sign in through the browser prompt or use a personal access token instead of your password.
 - Do not open or save `data/raw/train.csv` in Excel, because the file hash changes and the data stops matching.
 - If `pytest` can't find modules, run it from the repository root with the virtual environment activated.
+

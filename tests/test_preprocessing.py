@@ -40,13 +40,16 @@ def sample_raw_dataframe():
     }
     return pd.DataFrame(data)
 
+# Test 1: the duplicate row (R0002 appears twice) is dropped, so 6 rows become 5
+
 
 def test_clean_data_removes_duplicates(sample_raw_dataframe):
     """Verify that duplicate rows are properly identified and dropped."""
     cleaned = clean_data(sample_raw_dataframe)
     assert len(cleaned) == 5  # One duplicate removed
 
-
+# Test 2: only Tehsil North rainfall is multiplied by 10 (cm -> mm);
+# the other tehsils must stay unchanged
 def test_clean_data_corrects_rainfall_unit_mixup(sample_raw_dataframe):
     """Verify rainfall in Tehsil North is multiplied by 10 (unit mixup corrected)."""
     cleaned = clean_data(sample_raw_dataframe)
@@ -55,12 +58,16 @@ def test_clean_data_corrects_rainfall_unit_mixup(sample_raw_dataframe):
     # Row 3 (Tehsil South) was 600.0 -> should remain 600.0
     assert cleaned[cleaned["tehsil"] == "Tehsil South"]["rainfall_mm"].values[0] == 600.0
 
+# Test 3: the 999 placeholder is replaced and then filled, so no 999 and no
+# missing values remain in sowing_delay_days 
 
 def test_clean_data_handles_sentinel_values(sample_raw_dataframe):
     """Verify sentinel 999 in sowing_delay_days is replaced and imputed with median."""
     cleaned = clean_data(sample_raw_dataframe)
     assert 999 not in cleaned["sowing_delay_days"].values
     assert not cleaned["sowing_delay_days"].isnull().any()
+
+# Test 4: the typo target 220.0 is divided by 10, so no target is above 100
 
 
 def test_clean_data_corrects_target_typos(sample_raw_dataframe):
@@ -69,6 +76,9 @@ def test_clean_data_corrects_target_typos(sample_raw_dataframe):
     assert (cleaned["yield_qtl_per_acre"] > 100).sum() == 0
     assert cleaned.loc[cleaned["tehsil"] == "Tehsil North", "yield_qtl_per_acre"].max() < 50.0
 
+
+# Test 5: the leaking column and the identifier columns are removed, because
+# the model must not use them as features
 
 def test_clean_data_drops_leakage_and_id_columns(sample_raw_dataframe):
     """Verify that leaking column, date, and record_id are removed from output."""

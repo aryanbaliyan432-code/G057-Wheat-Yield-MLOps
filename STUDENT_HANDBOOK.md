@@ -225,3 +225,4 @@ promotion rule, and predict `holdout_features.csv` with your champion.
 - **"A member is not working."** Tell your faculty early. The contribution
   column exists for this, and commits are counted per person.
 - **"We lost our zip."** Ask your faculty; problems can be re-issued exactly.
+

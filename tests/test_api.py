@@ -17,14 +17,15 @@ def test_get_root():
     assert "version" in data
     assert data["status"] == "running"
 
-
 def test_get_health():
-    """Verify GET /health returns 200 and {'status': 'ok'} as required by client rules."""
+    """Verify GET /health returns complete service health information."""
     response = client.get("/health")
     assert response.status_code == 200
+
     data = response.json()
     assert data["status"] == "ok"
-
+    assert isinstance(data["model_loaded"], bool)
+    assert data["service"] == "wheat-yield-api"
 
 def test_post_predict_valid_payload():
     """Verify POST /predict returns 200 and valid predicted yield for normal input."""

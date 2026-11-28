@@ -6,6 +6,7 @@ df = pd.read_csv("data/raw/train.csv")
 later = pd.read_csv("data/raw/later.csv")
 holdout = pd.read_csv("data/raw/holdout_features.csv")
 
+# Print a banner so the report is easy to find in the terminal output
 print("=" * 55)
 print("WHEAT YIELD DATA QUALITY INVESTIGATION")
 print("=" * 55)
@@ -26,6 +27,9 @@ print("Mandi receipt correlation (excluding extreme target values):", corr)
 # 2. UNIT MIXUP
 print("\n2. UNIT MIXUP")
 
+# Compare rainfall per tehsil: North is about 10x smaller than the others,
+# so it was recorded in cm instead of mm
+
 print(df.groupby("tehsil")["rainfall_mm"].agg(
     ["min", "mean", "median", "max"]
 ))
@@ -44,6 +48,9 @@ print("Duplicate record IDs:", df["record_id"].duplicated().sum())
 
 # 5. STUCK SENSOR
 print("\n5. STUCK SENSOR")
+
+# For each tehsil, collect the irrigation values seen on each date, then look for
+# a run of 4 or more consecutive dates with the same value (a stuck sensor)
 
 sensor_data = df.copy()
 sensor_data["date"] = pd.to_datetime(sensor_data["date"])

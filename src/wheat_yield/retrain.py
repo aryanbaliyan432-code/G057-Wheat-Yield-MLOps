@@ -14,7 +14,7 @@ import shutil
 import sys
 from typing import Any, Dict, Tuple
 
-# Ensure project root is in sys.path
+# Ensure project root is in sys.path so src.* imports resolve regardless of working directory
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 import joblib
@@ -44,7 +44,9 @@ def run_retraining_pipeline(
 ) -> Dict[str, Any]:
     """Execute the end-to-end retraining and promotion pipeline."""
     logger.info("Initiating Stage 4 Retraining and Promotion Pipeline...", extra={"event_type": "retraining_started"})
-
+    
+# Load pipeline configuration and point MLflow to the local SQLite tracking store
+    
     params = load_config(config_path)
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     experiment_name = params.get("tracking", {}).get("experiment_name", "wheat-yield-prediction")

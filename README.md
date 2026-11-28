@@ -449,4 +449,9 @@ R01303,24.27
 - If `git push` says "Password authentication is not supported", sign in through the browser prompt or use a personal access token instead of your password.
 - Do not open or save `data/raw/train.csv` in Excel, because the file hash changes and the data stops matching.
 - If `pytest` can't find modules, run it from the repository root with the virtual environment activated.
-
+- If PowerShell blocks virtual environment activation with a script execution policy error, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in the current terminal, then activate using `.\.venv\Scripts\Activate.ps1`. This setting applies only to the current PowerShell session.
+- After `git clone`, the folder is named `G057-Wheat-Yield-MLOps`. Run `cd G057-Wheat-Yield-MLOps`.
+- If `git push` says "Password authentication is not supported", sign in through the browser prompt or use a personal access token instead of your password.
+- Do not open or save `data/raw/train.csv` in Excel, because the file hash changes and the data stops matching.
+- If `pytest` can't find modules, run it from the repository root with the virtual environment activated.
+- If PowerShell blocks virtual environment activation with a script execution policy error, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in the current terminal, then activate using `.\.venv\Scripts\Activate.ps1`. This setting applies only to the current PowerShell session.
